@@ -10,6 +10,6 @@ ansible_ssh_pass=
 
 # Add Extra username, password and shell for docker user.
 [nodes:vars]
-DOCKER_USERNAME=
-DOCKER_PASSWORD=
-DOCKER_USER_SHELL=
+# DOCKER_USERNAME=
+# DOCKER_PASSWORD=
+# DOCKER_USER_SHELL=
