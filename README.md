@@ -32,3 +32,21 @@ This Ansible playbook automates the installation of Vagrant with Libvirt, Docker
 ## Playbook Structure
 *   `install_docker.yaml`: Main Ansible playbook containing tasks to install dependencies and configure Docker.
 *   `inventory`: The inventory file which will contain SSH info, including username and password for Docker user and ansible user also.
+
+## Tasks Overview
+1. Updating and upgrading package list:  
+    *   Updates the package list.
+    *   Upgrades installed packages.
+
+2. Installing Docker and Docker Compose: 
+    *   Installs Docker and Docker Compose on Debian 12.
+
+3. Create Docker User:
+    *   Creates a Docker user if `DOCKER_USERNAME` is defined.
+
+4. Set Password for Docker User:
+    *   Sets the password for the Docker user and notifies handlers.
+
+5. Handlers:
+    *   `enabled docker`: Enables the Docker service.
+    *   `restart docker`: Restarts the Docker service.
