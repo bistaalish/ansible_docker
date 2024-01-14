@@ -1,0 +1,38 @@
+---
+- name: Install Vagrant with Libvirt on Debian 12
+  hosts: all
+  tasks:
+    - name: Updating and upgrading package list
+      apt:
+        update_cache: yes
+        upgrade: yes
+    - name: Installing docker and docker compose in Debian 12
+      apt:
+        name: 
+          - docker
+          - docker-compose
+
+    # Uncomment to create the user for docker
+    - name: Create Docker User
+      user:
+        name: "{{ DOCKER_USERNAME }}"
+        state: present
+        shell: "{{ DOCKER_USER_SHELL }}"
+        groups: docker  # You can add additional groups if needed
+      when: DOCKER_USERNAME is defined 
+    - name: Set Password for Docker User
+      ansible.builtin.shell:
+        cmd: echo '{{ DOCKER_USERNAME }}:{{ DOCKER_PASSWORD }}' | chpasswd    
+      notify:
+      - enabled docker
+      - restart docker
+      when: DOCKER_USERNAME is defined
+  handlers:
+    - name: enabled docker 
+      systemd:
+        name: docker
+        enabled: true
+    - name: restart docker
+      systemd:
+        name: docker
+        state: restarted

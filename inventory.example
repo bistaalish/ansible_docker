@@ -1,0 +1,15 @@
+# Nodes to Execute Script to
+[nodes]
+192.168.10.20
+
+# Variables for global user
+[all:vars]
+ansible_ssh_user=
+ansible_ssh_pass=
+# Username and password for ansible
+
+# Add Extra username, password and shell for docker user.
+[nodes:vars]
+DOCKER_USERNAME=
+DOCKER_PASSWORD=
+DOCKER_USER_SHELL=
