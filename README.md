@@ -26,5 +26,9 @@ This Ansible playbook automates the installation of Vagrant with Libvirt, Docker
 3. Run the Ansible playbook:
 
     ```bash
-    ansible-playbook  playbook.yml
+    ansible-playbook  install_docker.yaml
     ```
+
+## Playbook Structure
+*   `install_docker.yaml`: Main Ansible playbook containing tasks to install dependencies and configure Docker.
+*   `inventory`: The inventory file which will contain SSH info, including username and password for Docker user and ansible user also.
