@@ -17,11 +17,11 @@ This Ansible playbook automates the installation of Vagrant with Libvirt, Docker
    ```
 2. Customize variables in the inventory file (inventory) as needed for your environment:
 
--**`DOCKER_USERNAME`**: The name of the Docker user to be created.
+    -**`DOCKER_USERNAME`**: The name of the Docker user to be created.
 
--**`DOCKER_USER_SHELL`**: The shell for the Docker user.
+    -**`DOCKER_USER_SHELL`**: The shell for the Docker user.
 
--**`DOCKER_PASSWORD`**: The password for the Docker user.
+    -**`DOCKER_PASSWORD`**: The password for the Docker user.
 
 3. Run the Ansible playbook:
 
