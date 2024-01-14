@@ -12,14 +12,17 @@
           - docker
           - docker-compose
 
-    # Uncomment to create the user for docker
+    # Create Docker User if DOCKER_USERNAME is defined
     - name: Create Docker User
       user:
         name: "{{ DOCKER_USERNAME }}"
         state: present
         shell: "{{ DOCKER_USER_SHELL }}"
         groups: docker  # You can add additional groups if needed
-      when: DOCKER_USERNAME is defined 
+      when: DOCKER_USERNAME is defined
+      
+       
+    # Set Password for Docker User and notify handlers
     - name: Set Password for Docker User
       ansible.builtin.shell:
         cmd: echo '{{ DOCKER_USERNAME }}:{{ DOCKER_PASSWORD }}' | chpasswd    
